@@ -1,6 +1,23 @@
-<div class="products">
+<section class="products">
   <h1>Products</h1>
-  <ul>
-      <li ng-repeat="product in products">{{product}}</li>
+  <ul class="listing">
+      <li ng-repeat="product in products" ng-class="'{{product.sale && 'sale' || ''}} {{product.editorsPick && 'editorsPick' ||''}}'">
+      	<a href="{{product.url}}">
+      		<div class="productPhoto">
+	      		<img src="{{product.img}}" alt="">
+	      		<img class="editorsPickIcon" src="/images/icon_editor.png" alt="Editor's pick">
+		      	<img class="saleIcon" src="/images/icon_sale.png" alt="SALE">
+	      	</div>
+	      	<hgroup>
+		      	<h2>{{product.name}}</h2>
+		      	<h3>{{product.brand}} <span class="merchant">{{product.merchant}}</span></h3>
+		    </hgroup>
+		    <div class="price">
+		    	<span class="salePrice">${{product.sale && product.salePrice || product.listPrice}}</span> <span class="regularPrice">
+		    		Reg: <span class="listPrice">${{product.listPrice}}</span>
+		    	</span>
+			</div>
+	    </a>
+      </li>
   </ul>
-</div>
+</section>
