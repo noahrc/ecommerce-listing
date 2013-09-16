@@ -45,14 +45,14 @@
             </table>
 
             <div>Items: {{itemCount}}</div>
-            <div>Subtotal: {{cart.totals.subtotal}}</div>
-            <div>Shipping Total: {{shippingMethods[selectedShippingMethod].price}}</div>
+            <div>Subtotal: {{cart.totals.subtotal.toFixed(2)}}</div>
+            <div>Shipping Total: {{cart.totals.shipping.toFixed(2)}}</div>
             <div>Tax: {{cart.totals.tax}}</div>
-            <div class="total">Total: {{(cart.totals.subtotal + shippingMethods[selectedShippingMethod].price + totals.tax).toFixed(2) }}</div>
+            <div class="total">Total: {{(cart.totals.subtotal +  cart.totals.shipping + cart.totals.tax).toFixed(2) }}</div>
 
             <h3>Shipping</h3>
             <label ng-repeat="(key, method) in shippingMethods">
-                <input type="radio" ng-model="$parent.selectedShippingMethod" value="{{key}}">
+                <input type="radio" ng-model="$parent.selectedShippingMethod" ng-change="updateShipping($event)" value="{{key}}">
                 {{method.name}}
             </label>
         </form>        

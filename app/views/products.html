@@ -18,15 +18,15 @@
 		    		Reg: <span class="listPrice">${{product.listPrice}}</span>
 		    	</span><br />
 				
-				<form >
-					<button type="button" class="btn addToCart" ng-click='addToCart($event, product, quantity)'>Add To Cart</button>
-					<label class="quantity">
-						Quantity: 
-						<input type="number" class="quantityInput" ng-click="updateQuantity($event)" ng-model="product.quantity" min="1" step="1" ng-pattern='/\d+/'>
-					</label>
-				</form>
 			</div>
 	    </a>
+	    <form >
+			<button type="button" class="btn addToCart" ng-click='addToCart($event, product, quantity)'>Add To Cart</button>
+			<label class="quantity">
+				Quantity: 
+				<input type="number" class="quantityInput" ng-click="updateQuantity($event)" ng-model="product.quantity" min="1" step="1" ng-pattern='/\d+/'>
+			</label>
+		</form>
       </li>
   </ul>
 </section>

@@ -32,6 +32,7 @@ h2 {
 
 h3 {
     font-size: 1.3rem;
+    margin-bottom: 10px;
 }
 
 h1, h2, h3 {
@@ -44,6 +45,7 @@ input[type=text] {
 table {
     border-collapse: collapse;
     width: 100%;
+    margin: 10px 0;
 }
 
 th {
@@ -88,7 +90,7 @@ td {
                 color: inherit;
                 text-decoration: none;
                 display: block;
-                height: 355px;
+                height: 315px;
                 position: relative;
             }
             .regularPrice, .saleIcon, .editorsPickIcon {
@@ -142,7 +144,7 @@ td {
             width: 100%;
         }
         .salePrice {
-            margin: 3px;
+            margin: 3px 3px 0 0;
             font-size: 1.3rem;
             font-weight: bold;
         }
@@ -152,19 +154,20 @@ td {
             color: $add-to-cart-text-color;
             background: $add-to-cart-bg-color;
             border: 0;
-            font-size: 1.1em;
+            font-size: .9rem;
             padding: 5px 10px;
-            margin-top: 8px;
+            margin: 8px 0 0 0;
         }
         .listPrice {
             text-decoration: line-through;
         }
         .quantityInput {
-            width: 35px;
+            width: 30px;
         }
         .quantity {
             float: right;
             margin-top: 10px;
+            font-size: .9rem;
         }
     }
 }
