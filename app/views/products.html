@@ -14,9 +14,17 @@
 		      	<h3>{{product.brand}} <span class="merchant">{{product.merchant}}</span></h3>
 		    </hgroup>
 		    <div class="price">
-		    	<span class="salePrice">${{product.sale && product.salePrice || product.listPrice}}</span> <span class="regularPrice">
+		    	<span class="salePrice">${{product.price}}</span> <span class="regularPrice">
 		    		Reg: <span class="listPrice">${{product.listPrice}}</span>
-		    	</span>
+		    	</span><br />
+				
+				<form >
+					<button type="button" class="btn addToCart" ng-click='addToCart($event, product, quantity)'>Add To Cart</button>
+					<label class="quantity">
+						Quantity: 
+						<input type="number" class="quantityInput" ng-click="updateQuantity($event)" ng-model="product.quantity" min="1" step="1" ng-pattern='/\d+/'>
+					</label>
+				</form>
 			</div>
 	    </a>
       </li>

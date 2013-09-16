@@ -29,13 +29,26 @@
         <form class="cart" ng-controller="CartCtrl">
             
             <h2>Cart</h2>
-            
-            <div>Items: {{cart.items.length}}</div>
-            <div>Price total: {{cart.totals.price}}</div>
+            <table class="cartItems">
+                <tr>
+                    <th>Title</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="item in items">
+                    <td>{{item.name}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td>${{item.quantityPrice.toFixed(2)}}</td>
+                    <td><a href="#" ng-click="removeFromCart($event, item)">Remove</a></td>
+                </tr>
+            </table>
+
+            <div>Items: {{itemCount}}</div>
             <div>Subtotal: {{cart.totals.subtotal}}</div>
             <div>Shipping Total: {{shippingMethods[selectedShippingMethod].price}}</div>
             <div>Tax: {{cart.totals.tax}}</div>
-            <div>Total: {{shippingMethods[selectedShippingMethod].price}}</div>
+            <div class="total">Total: {{(cart.totals.subtotal + shippingMethods[selectedShippingMethod].price + totals.tax).toFixed(2) }}</div>
 
             <h3>Shipping</h3>
             <label ng-repeat="(key, method) in shippingMethods">

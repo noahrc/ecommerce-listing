@@ -3,8 +3,13 @@ $base-text-color: #333;
 $light-text-color: #BBB;
 $border-color: #DDD;
 
+$accent-1: #bc2132;
+
 $body-bg-color: #EEE;
 
 $merchant-text-color: $light-text-color;
 $list-price-text-color: $base-text-color;
-$sale-price-text-color: #97292c;
+$sale-price-text-color: $accent-1;
+
+$add-to-cart-text-color: white;
+$add-to-cart-bg-color: $accent-1;
