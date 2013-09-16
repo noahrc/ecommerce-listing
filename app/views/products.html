@@ -1,7 +1,8 @@
 <section class="products">
   <h1>Products</h1>
+  <input type="text" class="productSearch" ng-model="productQuery" placeholder="Search">
   <ul class="listing">
-      <li ng-repeat="product in products" ng-class="'{{product.sale && 'sale' || ''}} {{product.editorsPick && 'editorsPick' ||''}}'">
+      <li ng-repeat="product in products | filter:productQuery" ng-class="'{{product.sale && 'sale' || ''}} {{product.editorsPick && 'editorsPick' ||''}}'">
       	<a href="{{product.url}}">
       		<div class="productPhoto">
 	      		<img src="{{product.img}}" alt="">

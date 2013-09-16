@@ -37,12 +37,18 @@ h3 {
 h1, h2, h3 {
     line-height: 1.3em;
 }
-
+input[type=text] {
+    padding: 5px;
+}
 .cart {
     margin: 10px;
 }
 
 .products {
+    .productSearch {
+        float: right;
+        margin: -50px 10px 0 0;
+    }
     .merchant {
         color: $merchant-text-color;
     }
