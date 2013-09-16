@@ -1,10 +1,11 @@
 'use strict'
 
-angular.module('ecommerceListingApp', [])
-  .config ($routeProvider) ->
+ecomApp = angular.module('ecomApp', [])
+
+ecomApp.config ($routeProvider) ->
     $routeProvider
-      .when '/',
-        templateUrl: 'views/products.html'
-        controller: 'MainCtrl'
-      .otherwise
-        redirectTo: '/'
+    	.when '/',
+    		templateUrl: 'views/products.html'
+    		controller: 'ProductsCtrl'
+    	.otherwise
+    		redirectTo: '/'

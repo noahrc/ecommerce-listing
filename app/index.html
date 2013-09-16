@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>ecomApp</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
 </head>
-  <body ng-app="ecommerceListingApp">
+  <body ng-app="ecomApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -25,7 +25,27 @@
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <div class="container" ng-view=""></div>
+    <div class="container" >
+        <form class="cart" ng-controller="CartCtrl">
+            
+            <h2>Cart</h2>
+            
+            <div>Items: {{cart.items.length}}</div>
+            <div>Price total: {{cart.totals.price}}</div>
+            <div>Subtotal: {{cart.totals.subtotal}}</div>
+            <div>Shipping Total: {{shippingMethods[selectedShippingMethod].price}}</div>
+            <div>Tax: {{cart.totals.tax}}</div>
+            <div>Total: {{shippingMethods[selectedShippingMethod].price}}</div>
+
+            <h3>Shipping</h3>
+            <label ng-repeat="(key, method) in shippingMethods">
+                <input type="radio" ng-model="$parent.selectedShippingMethod" value="{{key}}">
+                {{method.name}}
+            </label>
+        </form>        
+        <div ng-view="">
+        </div>
+    </div>
 
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -36,7 +56,8 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/products.js"></script>
+        <script src="scripts/controllers/cart.js"></script>
         <!-- endbuild -->
 </body>
 </html>
